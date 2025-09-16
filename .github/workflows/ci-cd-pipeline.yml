@@ -57,5 +57,5 @@ jobs:
           username: ${{ secrets.K8S_MASTER_USER }}
           key: ${{ secrets.K8S_MASTER_SSH_KEY }}
           script: |
-            kubectl set image deployment/nginx-deployment nginx=sergey282/test_web_application:${{ github.ref_name }}
-            kubectl rollout status deployment/nginx-deployment
+            kubectl set image deployment/nginx-deployment nginx=sergey282/test_web_application:${{ github.ref_name }} -n web
+            kubectl rollout status deployment/nginx-deployment -n web
